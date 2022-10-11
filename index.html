@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="assets/style.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+<nav class="topnav" id="myTopnav">
+  <div id="under"></div>
+  <a href="#All" class="a">All</a>
+  <a href="#Scholarship" class="a" >Scholarship</a>
+  <a href="#Peace & security" class="a">Peace & security</a>
+  <a href="#Voting & Citizenship" class="a">Voting & Citizenship</a>
+  <a href="#Education" class="a">Education</a>
+  <a href="#Home" class="a active">Home</a>
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i class="fa fa-bars"></i>
+  </a>
+</nav>
+
+<!-- <div style="padding-left:16px">
+  <h2>Responsive Topnav Example</h2>
+  <p>Resize the browser window to see how it works.</p>
+</div> -->
+
+<script>
+var under = document.querySelector('#under');
+var item = document.querySelectorAll('nav a');
+var btns = document.getElementsByClassName("a");
+var x = document.getElementById("myTopnav");
+
+  function myFunction() {
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
+// Get the container element
+// var btnContainer = document.getElementById("myTopnav");
+
+// // Get all buttons with class="btn" inside the container
+// var btns = btnContainer.getElementsByClassName("a");
+
+// // Loop through the buttons and add the active class to the current/clicked button
+// for (var i = 0; i < btns.length; i++) {
+//   btns[i].addEventListener("click", function() {
+//     var current = document.getElementsByClassName("active");
+//     current[0].className = current[0].className.replace(" active", "");
+//     this.className += " active";
+//   });
+// }
+
+
+function indicator(e){
+  if (x.className === "topnav responsive"){
+    under.style.left=this.offsetLeft="0px";
+    under.style.width=this.offsetWidth="0px";
+  }else{
+    under.style.left=e.offsetLeft+"px";
+    under.style.width=e.offsetWidth+"px";
+  }
+}
+item.forEach(link =>{
+  for (var i = 0; i < btns.length; i++) {
+    btns[i].addEventListener("click", function() {
+    var current = document.getElementsByClassName("active");
+    current[0].className = current[0].className.replace(" active", "");
+    this.className += " active";
+  });
+}
+  link.addEventListener('click',(e) =>{
+    indicator(e.target);
+  })
+})
+</script>
+
+</body>
+</html>
